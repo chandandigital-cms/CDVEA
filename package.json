@@ -1,0 +1,16 @@
+{
+  "name": "cdvea",
+  "version": "1.2.0",
+  "private": true,
+  "description": "CDVEA by Chandan Digital: local video editing, editorial planning, motion graphics, captions, sound and delivery.",
+  "author": "Chandan Digital",
+  "license": "MIT",
+  "scripts": {
+    "test": "python cdvea/test_cdvea.py",
+    "doctor": "python cdvea/cli.py doctor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chandandigital-cms/CDVEA.git"
+  }
+}

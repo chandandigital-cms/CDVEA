@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+.env
+.env.*
+!.env.example
+device-runtime.json
+runtime.json
+TEST-RESULTS.json
+models/
+cache/
+work/
+outputs/
+*.log
+.DS_Store
+Thumbs.db

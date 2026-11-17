@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "cdvea": {
+      "command": "python",
+      "args": [
+        "mcp/launch.py"
+      ],
+      "cwd": "."
+    }
+  }
+}

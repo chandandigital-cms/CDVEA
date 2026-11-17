@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "cdvea": {
+      "command": "python",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/mcp/launch.py"
+      ]
+    }
+  }
+}
