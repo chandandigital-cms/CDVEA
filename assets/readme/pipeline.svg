@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 230" width="1200" height="230" role="img" aria-labelledby="t d">
+  <title id="t">CDVEA editing pipeline</title>
+  <desc id="d">Animated workflow: footage analysis, cutting, sound, captions, motion graphics and delivery, with a signal moving through each step.</desc>
+  <style>
+    text { font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; text-anchor: middle; }
+    .flow { stroke-dasharray: 10 12; animation: flow 1s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset: -22; } }
+    .dot { animation: travel 6s linear infinite; }
+    @keyframes travel { 0% { transform: translateX(0); opacity: 1; } 90% { transform: translateX(980px); opacity: 1; } 91%,100% { transform: translateX(980px); opacity: 0; } }
+    .node { transform-box: fill-box; transform-origin: center; animation: lit 6s ease-out infinite; }
+    @keyframes lit { 0% { fill: #3bdbc3; transform: scale(1.14); } 14%,100% { fill: #143b3d; transform: scale(1); } }
+    @media (prefers-reduced-motion: reduce) { .flow, .dot, .node { animation: none; } }
+  </style>
+  <rect width="1200" height="230" rx="24" fill="#0c2224"/>
+  <line x1="110" y1="92" x2="1090" y2="92" stroke="#1d5355" stroke-width="6" stroke-linecap="round"/>
+  <line class="flow" x1="110" y1="92" x2="1090" y2="92" stroke="#3bdbc3" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+
+  <g stroke="#3bdbc3" stroke-width="3">
+    <circle class="node" cx="110"  cy="92" r="36" fill="#143b3d" style="animation-delay:0s"/>
+    <circle class="node" cx="306"  cy="92" r="36" fill="#143b3d" style="animation-delay:1.08s"/>
+    <circle class="node" cx="502"  cy="92" r="36" fill="#143b3d" style="animation-delay:2.16s"/>
+    <circle class="node" cx="698"  cy="92" r="36" fill="#143b3d" style="animation-delay:3.24s"/>
+    <circle class="node" cx="894"  cy="92" r="36" fill="#143b3d" style="animation-delay:4.32s"/>
+    <circle class="node" cx="1090" cy="92" r="36" fill="#143b3d" style="animation-delay:5.4s"/>
+  </g>
+  <g class="dot"><circle cx="110" cy="92" r="9" fill="#ffffff"/><circle cx="110" cy="92" r="16" fill="#3bdbc3" opacity=".35"/></g>
+
+  <g font-size="26" font-weight="700" fill="#e8fbf8">
+    <text x="110" y="101">1</text><text x="306" y="101">2</text><text x="502" y="101">3</text>
+    <text x="698" y="101">4</text><text x="894" y="101">5</text><text x="1090" y="101">6</text>
+  </g>
+  <g font-size="22" font-weight="700" fill="#ffffff">
+    <text x="110" y="166">Footage</text><text x="306" y="166">Cut</text><text x="502" y="166">Sound</text>
+    <text x="698" y="166">Captions</text><text x="894" y="166">Motion</text><text x="1090" y="166">Deliver</text>
+  </g>
+  <g font-size="15" fill="#8ce9db">
+    <text x="110" y="194">probe · scenes · transcript</text>
+    <text x="306" y="194">trim · join · speed · pauses</text>
+    <text x="502" y="194">denoise · ducking · LUFS</text>
+    <text x="698" y="194">SRT · karaoke · Indic</text>
+    <text x="894" y="194">titles · overlays</text>
+    <text x="1090" y="194">master · Reels · Shorts</text>
+  </g>
+</svg>

@@ -1,10 +1,123 @@
-# CDVEA by Chandan Digital
+<div align="center">
 
-CDVEA brings footage editing, sound, captions, motion design and delivery workflows into one agent plugin. You can ask for an edit in English or Bengali. It includes 30 skills, 8 specialist agent definitions, 9 commands and a local MCP server with 49 tools.
+<img src="assets/readme/hero.svg" width="100%" alt="CDVEA by Chandan Digital – AI video editing agent for Claude Code and Codex: cut footage, clean sound, add Bengali, Hindi and English captions, motion graphics and platform exports with FFmpeg">
 
-The editing engine comes from the supplied FFmpeg Skill 3.10.1 archive. This release adds selected GitHub skills, adapted CDVEA entry points, project helpers, a local dependency checker, subtitle retiming, a cut-list exporter and integration tests. Original authors retain credit for their work.
+[![Version](https://img.shields.io/badge/version-1.2.0-3bdbc3?style=flat-square)](VALIDATION.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-3bdbc3?style=flat-square)](LICENSE)
+[![Windows x64](https://img.shields.io/badge/setup-Windows%2010%2F11%20x64-102a2c?style=flat-square&logo=windows)](SETUP-GUIDE.md)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-102a2c?style=flat-square&logo=python&logoColor=white)](SETUP-GUIDE.md)
+[![FFmpeg 6.1+](https://img.shields.io/badge/FFmpeg-6.1%2B-102a2c?style=flat-square&logo=ffmpeg)](SETUP-GUIDE.md)
+[![MCP tools](https://img.shields.io/badge/MCP-49%20tools-3bdbc3?style=flat-square)](CAPABILITIES.md)
 
-Start with the English [step-by-step setup guide](SETUP-GUIDE.md). Check [CAPABILITIES.md](CAPABILITIES.md) before choosing optional engines. Use [the routing list](references/routing.md) to see every skill.
+**[Quick start](#-quick-start-windows)** · **[Features](#-features)** · **[Demos](#-see-it-work)** · **[Prompts](#-ask-in-english-or-bengali)** · **[FAQ](#-faq)**
+
+</div>
+
+# CDVEA — AI Video Editing Agent for Claude Code & Codex
+
+**CDVEA** (by Chandan Digital) is an open-source **AI video editing plugin** that turns Claude Code or Codex into a local video editor. Describe the edit in plain **English or Bengali**. CDVEA plans it, cuts the footage with **FFmpeg**, cleans and mixes the sound, burns in **Bengali, Hindi or English subtitles**, adds titles and motion graphics, and exports masters for YouTube, Instagram Reels and Shorts.
+
+Everything core runs **on your own computer**. Your footage is not uploaded, and there is no cloud render step.
+
+> 30 skills · 8 specialist agents · 9 slash commands · 49 MCP tools · one-time Windows setup
+
+## ✨ Why CDVEA
+
+- **Edit by conversation:** "Make a 30-second promo with Bengali captions and a vertical Short" is a complete instruction.
+- **Local and private:** Python + FFmpeg on your machine. Optional speech models load only for a transcription job.
+- **A full post-production crew:** a director, editor, sound editor, caption editor, motion designer, media analyst, delivery editor and an independent reviewer.
+- **Indic captions done properly:** Bengali and Hindi caption review, retiming and font checks, plus English.
+- **Reproducible:** edits live in a plan file you can validate, re-render and hand over as an EDL cut list.
+
+## 🎬 How it works
+
+<img src="assets/readme/pipeline.svg" width="100%" alt="CDVEA video editing pipeline: footage analysis, cutting, sound mixing, captions, motion graphics and delivery">
+
+1. **Footage:** probe files, detect scenes, transcribe speech with word timestamps.
+2. **Cut:** trim, join, speed ramps, remove long pauses and filler words, multicam switching.
+3. **Sound:** voice cleanup, music ducking, loudness normalisation (LUFS).
+4. **Captions:** SRT, karaoke and word-by-word captions; Bengali/Hindi retiming.
+5. **Motion:** title cards, lower thirds, logo overlays, HTML and React motion graphics.
+6. **Deliver:** 1080p masters, ProRes/DNxHR, proxies, Reels/Shorts/TikTok versions, QC reports.
+
+## 🎥 See it work
+
+Every preview below was rendered by CDVEA's own scripts. In each clip, the left half is the input and the right half is the result.
+
+<table>
+<tr>
+<td align="center"><img src="docs/demos/captions_pop_karaoke.gif" width="260" alt="Karaoke-style pop captions burned into video"><br><sub>Karaoke captions</sub></td>
+<td align="center"><img src="docs/demos/lower_third_hindi.gif" width="260" alt="Hindi lower third title overlay"><br><sub>Hindi lower third</sub></td>
+<td align="center"><img src="docs/demos/silence_removal.gif" width="260" alt="Automatic silence removal from a talking video"><br><sub>Silence removal</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/demos/color_correct.gif" width="260" alt="Colour correction before and after"><br><sub>Colour correction</sub></td>
+<td align="center"><img src="docs/demos/speedramp.gif" width="260" alt="Speed ramp effect"><br><sub>Speed ramp</sub></td>
+<td align="center"><img src="docs/demos/multicam_switch.gif" width="260" alt="Multicam angle switching"><br><sub>Multicam switch</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/demos/bgm_ducking.gif" width="260" alt="Background music ducking under dialogue"><br><sub>Music ducking</sub></td>
+<td align="center"><img src="docs/demos/greenscreen.gif" width="260" alt="Green screen chroma key removal"><br><sub>Green screen</sub></td>
+<td align="center"><img src="docs/demos/stabilize.gif" width="260" alt="Shaky video stabilisation"><br><sub>Stabilisation</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/demos/title_card.gif" width="260" alt="Animated title card"><br><sub>Title card</sub></td>
+<td align="center"><img src="docs/demos/broll_cutaway.gif" width="260" alt="B-roll cutaway insert"><br><sub>B-roll cutaway</sub></td>
+<td align="center"><img src="docs/demos/export_reels.gif" width="260" alt="Vertical export for Instagram Reels and YouTube Shorts"><br><sub>Reels / Shorts export</sub></td>
+</tr>
+</table>
+
+<p align="center"><a href="docs/demos.md"><b>Open the full demo gallery (77 examples) →</b></a></p>
+
+## 💬 Ask in English or Bengali
+
+- "এই footage দিয়ে ৩০ সেকেন্ডের banquet promo বানান। বাংলা captions দিন, সঙ্গে একটি vertical Short।"
+- "ভিডিওর লম্বা pause গুলো কেটে দিন আর voice টা পরিষ্কার করুন।"
+- "Remove long pauses, keep complete sentences, clean the voice and give me an SRT."
+- "Match these shots, add the supplied logo and export a 1080p master."
+- "Review this edit for bad cuts, spelling, lip sync and sound problems."
+
+Slash commands in Claude Code: `/cdvea:plan`, `/cdvea:edit`, `/cdvea:audio`, `/cdvea:captions`, `/cdvea:motion`, `/cdvea:shorts`, `/cdvea:review`, `/cdvea:export`, `/cdvea:doctor`.
+
+## 🧰 Features
+
+| Work | What CDVEA does |
+| --- | --- |
+| ✂️ Editing | Cut, join, trim, speed ramps, freeze frames, reverse, loops, smart cuts, pause and filler removal |
+| 🎞️ Assembly | Reproducible multi-clip timelines from a plan file, multi-track composites, picture-in-picture, B-roll |
+| 🎚️ Sound | Voice cleanup, denoise, music ducking, loudness targets, 5.1 downmix, external-mic sync |
+| 🔤 Captions | Burned-in subtitles, karaoke and word captions, SRT export, Bengali/Hindi review and retiming |
+| 🎨 Look | Colour correction, LUTs, HDR to SDR tone mapping, stabilisation, deinterlace, green screen |
+| ✨ Motion | Title cards, lower thirds, logo overlays, HTML (HyperFrames) and React (Remotion) motion graphics |
+| 🤖 AI assist | Local transcription with word timestamps (faster-whisper), content-based scene detection |
+| 📦 Delivery | 1080p masters, ProRes, DNxHR, alpha video, proxies, Reels/Shorts/TikTok formats, EDL cut lists |
+| 🔍 Review | Technical checks, contact sheets, render QC reports, independent reviewer agent |
+
+Some routes need extra software. [CAPABILITIES.md](CAPABILITIES.md) lists exactly what each one requires.
+
+## 🚀 Quick start (Windows)
+
+**1. Install the prerequisites** (Git, Python 3.10+, FFmpeg 6.1+):
+
+```powershell
+winget install --id Git.Git -e
+winget install --id Python.Python.3.12 -e
+winget install --id Gyan.FFmpeg -e
+```
+
+**2. Clone and run setup once:**
+
+```powershell
+git clone https://github.com/chandandigital-cms/CDVEA.git
+cd CDVEA
+powershell -ExecutionPolicy Bypass -File .\setup.ps1
+```
+
+**3. Restart Claude Code or Codex**, then ask for an edit normally. You don't need a launcher or a model switch.
+
+The installer prepares the local runtime and speech model, then registers CDVEA with the host CLIs it finds. The [step-by-step setup guide](SETUP-GUIDE.md) covers every detail.
+
+### Use the CLI directly
 
 ```powershell
 python setup.py
@@ -13,18 +126,59 @@ python cdvea/cli.py catalog
 python cdvea/cli.py init "D:/VideoJobs/my-edit"
 ```
 
-Fill the generated project’s clip ranges, then validate and render it. Read [the plan format](references/cdvea-plan.md) for exact fields and supported operations.
+Fill the generated project's clip ranges, then validate and render it. [The plan format](references/cdvea-plan.md) has the exact fields, and [the routing list](references/routing.md) shows every skill.
 
-## Ask CDVEA for a real edit
+## 🗂️ What's inside
 
-- “এই footage দিয়ে ৩০ সেকেন্ডের banquet promo বানান। বাংলা captions দিন, সঙ্গে একটি vertical Short।”
-- “Remove long pauses, keep complete sentences, clean the voice and give me an SRT.”
-- “Match these shots, add the supplied logo and export a 1080p master.”
-- “Review this edit for bad cuts, spelling, lip sync and sound problems.”
+| Part | Count | Where |
+| --- | --- | --- |
+| Skills | 30 | [`skills/`](skills) |
+| Specialist agents | 8 | [`agents/`](agents) |
+| Slash commands | 9 | [`commands/`](commands) |
+| Local MCP server tools | 49 (42 FFmpeg + 6 project + 1 transcription) | [`mcp/`](mcp) |
+| Python core and tests | CLI, runner, installer, AI helpers | [`cdvea/`](cdvea) |
 
-The core runs locally with Python and FFmpeg. Optional motion engines, speech models and hosted services need their own setup. CDVEA does not install them or start an upload on activation. An agent definition describes a role; host support determines whether it can run as a separate agent.
+**Agents:** director · editor · sound editor · caption editor · motion designer · media analyst · delivery editor · reviewer.
 
-## Source projects
+## ❓ FAQ
+
+<details>
+<summary><b>Can Claude Code edit videos?</b></summary>
+
+Yes. With CDVEA installed, Claude Code (or Codex) can run real video edits through local FFmpeg tools and a local MCP server. You describe the result, and it plans, renders and checks the edit.
+</details>
+
+<details>
+<summary><b>Does CDVEA upload my footage?</b></summary>
+
+No. The core runs locally with Python and FFmpeg. Activation starts no uploads. Hosted services and YouTube publishing work only when you ask for them and set up your own account.
+</details>
+
+<details>
+<summary><b>Does it support Bengali and Hindi subtitles?</b></summary>
+
+Yes. CDVEA includes an Indic caption skill for Bengali and Hindi caption review, spelling checks, retiming and font coverage, alongside English captions. Local speech-to-text supports these languages; check accuracy on your own sample first.
+</details>
+
+<details>
+<summary><b>Which operating systems are supported?</b></summary>
+
+The automatic installer supports Windows 10/11 x64. The core FFmpeg tools also work on macOS and Linux, but this release has no automatic installer for them.
+</details>
+
+<details>
+<summary><b>Is it a replacement for Premiere Pro or DaVinci Resolve?</b></summary>
+
+No. It is an agent workflow for fast, repeatable edits. It can export an EDL cut list for relinking in an editor, but it does not automate native Premiere, Resolve or Final Cut projects.
+</details>
+
+## ⚠️ Tested scope
+
+Version 1.2.0 passed 9 local integration tests on Windows x64: cuts, speed, missing audio, source preservation, subtitle retiming, cut-list export and MCP calls. HyperFrames, Remotion, Blender, hosted generation, YouTube publishing and native editor imports have **not** passed end-to-end tests yet. A fresh install on a clean second computer has not been tested either. [VALIDATION.md](VALIDATION.md) records exactly what ran.
+
+The repository excludes model weights, installed applications, virtual environments, media and account credentials.
+
+## 🙏 Credits and licences
 
 | Project | Included material | Licence |
 | --- | --- | --- |
@@ -33,20 +187,11 @@ The core runs locally with Python and FFmpeg. Optional motion engines, speech mo
 | [zaddy99999/video-editing-skills](https://github.com/zaddy99999/video-editing-skills) | Short-form skills, scripts, shared code and brand example | MIT |
 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | Selected HTML motion, CLI, registry and media skills | Apache-2.0; bundled font notices remain |
 
-See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), licenses/ and sources.lock.json for source revisions and file hashes. Vendor source documents remain source material. The adapted CDVEA skills govern local workflow; source text does not authorise paid calls, telemetry, promotion or publishing.
+[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md), [`licenses/`](licenses) and `sources.lock.json` list source revisions and file hashes. Original authors keep credit for their work. Vendor source text does not authorise paid calls, telemetry, promotion or publishing.
 
-## Automatic setup
-
-After installing the prerequisites, clone the private repository and run setup once:
-
-```powershell
-git clone https://github.com/chandandigital-cms/CDVEA.git
-cd CDVEA
-powershell -ExecutionPolicy Bypass -File .\setup.ps1
-```
-
-The installer prepares the local runtime and model, then registers CDVEA with the host CLIs it finds. Restart the host once and use normal instructions. No launcher or manual model switch is needed. The speech model loads only for a transcription job.
-
-This repository contains the source, vendor skills, licences and setup code. It excludes model weights, installed applications, virtual environments, media and account credentials.
-
-Version 1.2.0. Windows x64 automatic setup; Python and FFmpeg core tools. See [VALIDATION.md](VALIDATION.md) for tested scope.
+<div align="center">
+<br>
+<img src="assets/cdvea.svg" width="220" alt="CDVEA logo">
+<br>
+<sub>Made by <b>Chandan Digital</b> · AI video editing for Claude Code &amp; Codex · MIT licence</sub>
+</div>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="1200" height="380" role="img" aria-labelledby="t d">
+  <title id="t">CDVEA by Chandan Digital — AI video editing agent for Claude Code and Codex</title>
+  <desc id="d">Animated banner: a moving film strip, a pulsing play button, an audio waveform and rotating features — cut, sound, captions, motion graphics and delivery.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1c1e"/>
+      <stop offset="1" stop-color="#14393b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.3" r="0.6">
+      <stop offset="0" stop-color="#3bdbc3" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#3bdbc3" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="film" width="120" height="64" patternUnits="userSpaceOnUse">
+      <rect width="120" height="64" fill="#06292a"/>
+      <rect x="10" y="12" width="100" height="40" rx="5" fill="#1d5355"/>
+      <rect x="6" y="3" width="10" height="6" rx="2" fill="#0a1c1e"/>
+      <rect x="36" y="3" width="10" height="6" rx="2" fill="#0a1c1e"/>
+      <rect x="66" y="3" width="10" height="6" rx="2" fill="#0a1c1e"/>
+      <rect x="96" y="3" width="10" height="6" rx="2" fill="#0a1c1e"/>
+      <rect x="6" y="55" width="10" height="6" rx="2" fill="#0a1c1e"/>
+      <rect x="36" y="55" width="10" height="6" rx="2" fill="#0a1c1e"/>
+      <rect x="66" y="55" width="10" height="6" rx="2" fill="#0a1c1e"/>
+      <rect x="96" y="55" width="10" height="6" rx="2" fill="#0a1c1e"/>
+    </pattern>
+    <clipPath id="card"><rect width="1200" height="380" rx="28"/></clipPath>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    .film { animation: roll 6s linear infinite; }
+    @keyframes roll { to { transform: translateX(-120px); } }
+    .ring { transform-box: fill-box; transform-origin: center; animation: ring 2.4s ease-out infinite; }
+    @keyframes ring { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(1.9); opacity: 0; } }
+    .bar { transform-box: fill-box; transform-origin: center; animation: eq 1.2s ease-in-out infinite; }
+    @keyframes eq { 0%,100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }
+    .in { opacity: 0; animation: rise .9s ease-out forwards; }
+    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    .feat { opacity: 0; animation: feat 15s infinite; }
+    @keyframes feat { 0% { opacity: 0; transform: translateY(10px); } 3%,18% { opacity: 1; transform: none; } 21%,100% { opacity: 0; transform: translateY(-10px); } }
+    .head { animation: head 5s ease-in-out infinite alternate; }
+    @keyframes head { from { transform: translateX(0); } to { transform: translateX(268px); } }
+    @media (prefers-reduced-motion: reduce) {
+      .film, .ring, .bar, .head { animation: none; }
+      .in { animation: none; opacity: 1; }
+      .feat { animation: none; }
+      .feat.f1 { opacity: 1; }
+    }
+  </style>
+
+  <g clip-path="url(#card)">
+    <rect width="1200" height="380" fill="url(#bg)"/>
+    <rect width="1200" height="380" fill="url(#glow)"/>
+    <!-- moving film strip -->
+    <g transform="translate(0 316)">
+      <g class="film"><rect width="1440" height="64" fill="url(#film)"/></g>
+    </g>
+  </g>
+
+  <!-- play button -->
+  <g transform="translate(118 150)">
+    <circle class="ring" r="58" fill="none" stroke="#3bdbc3" stroke-width="3"/>
+    <circle r="58" fill="#3bdbc3"/>
+    <path d="M-16 -26 L30 0 L-16 26 Z" fill="#0a1c1e"/>
+  </g>
+
+  <!-- title -->
+  <text class="in" x="212" y="140" font-size="86" font-weight="800" fill="#ffffff" letter-spacing="2">CDVEA</text>
+  <text class="in" style="animation-delay:.25s" x="216" y="180" font-size="24" fill="#8ce9db">by Chandan Digital</text>
+  <text class="in" style="animation-delay:.5s" x="216" y="226" font-size="27" font-weight="600" fill="#e8fbf8">AI video editing agent for Claude Code &amp; Codex</text>
+
+  <!-- rotating features -->
+  <g transform="translate(216 272)" font-size="22" fill="#3bdbc3">
+    <text class="feat f1" style="animation-delay:0s">▸ Cut, trim &amp; assemble footage with FFmpeg</text>
+    <text class="feat" style="animation-delay:3s">▸ Clean voice, duck music, hit loudness targets</text>
+    <text class="feat" style="animation-delay:6s">▸ Bengali · Hindi · English captions</text>
+    <text class="feat" style="animation-delay:9s">▸ Titles, lower thirds &amp; motion graphics</text>
+    <text class="feat" style="animation-delay:12s">▸ Masters, Reels, Shorts &amp; YouTube exports</text>
+  </g>
+
+  <!-- waveform -->
+  <g transform="translate(860 70)" fill="#3bdbc3">
+    <rect class="bar" x="0"   y="20" width="10" height="140" rx="5" style="animation-delay:-.1s"/>
+    <rect class="bar" x="20"  y="20" width="10" height="140" rx="5" style="animation-delay:-.5s"/>
+    <rect class="bar" x="40"  y="20" width="10" height="140" rx="5" style="animation-delay:-.9s"/>
+    <rect class="bar" x="60"  y="20" width="10" height="140" rx="5" style="animation-delay:-.3s"/>
+    <rect class="bar" x="80"  y="20" width="10" height="140" rx="5" style="animation-delay:-.7s"/>
+    <rect class="bar" x="100" y="20" width="10" height="140" rx="5" style="animation-delay:-1.1s"/>
+    <rect class="bar" x="120" y="20" width="10" height="140" rx="5" style="animation-delay:-.2s"/>
+    <rect class="bar" x="140" y="20" width="10" height="140" rx="5" style="animation-delay:-.6s"/>
+    <rect class="bar" x="160" y="20" width="10" height="140" rx="5" style="animation-delay:-1s"/>
+    <rect class="bar" x="180" y="20" width="10" height="140" rx="5" style="animation-delay:-.4s"/>
+    <rect class="bar" x="200" y="20" width="10" height="140" rx="5" style="animation-delay:-.8s"/>
+    <rect class="bar" x="220" y="20" width="10" height="140" rx="5" style="animation-delay:-.15s"/>
+    <rect class="bar" x="240" y="20" width="10" height="140" rx="5" style="animation-delay:-.55s"/>
+    <rect class="bar" x="260" y="20" width="10" height="140" rx="5" style="animation-delay:-.95s"/>
+  </g>
+
+  <!-- timeline + playhead -->
+  <g transform="translate(860 230)">
+    <rect width="270" height="14" rx="7" fill="#1d5355"/>
+    <rect width="96" height="14" rx="7" fill="#3bdbc3" opacity=".55"/>
+    <rect x="110" width="70" height="14" rx="7" fill="#8ce9db" opacity=".45"/>
+    <rect x="194" width="76" height="14" rx="7" fill="#3bdbc3" opacity=".3"/>
+    <g class="head"><rect x="-1" y="-10" width="3" height="34" fill="#ff6b6b"/><circle cx="0.5" cy="-12" r="5" fill="#ff6b6b"/></g>
+  </g>
+</svg>
