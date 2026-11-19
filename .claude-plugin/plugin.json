@@ -8,7 +8,7 @@
   "license": "MIT",
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
-  "displayName": "CDVEA by Chandan Digital",
+  "displayName": "CDVEA",
   "icon": "./assets/cdvea-icon.png",
   "repository": "https://github.com/chandandigital-cms/CDVEA"
 }
