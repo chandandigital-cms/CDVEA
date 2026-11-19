@@ -76,8 +76,9 @@ def main():
             if args.hosts in ['both',host]:raise RuntimeError(host+' CLI is not on PATH. Install it, reopen the terminal and run setup.py again.')
             continue
         run([executable,'plugin','marketplace','add',ROOT],env)
-        if host=='claude':run([executable,'plugin','install','cdvea@chandan-digital','--scope','user'],env)
-        else:run([executable,'plugin','add','cdvea@chandan-digital'],env)
+        plugin_id='cdvea@'+json.loads((ROOT/'.claude-plugin/marketplace.json').read_text(encoding='utf-8'))['name']
+        if host=='claude':run([executable,'plugin','install',plugin_id,'--scope','user'],env)
+        else:run([executable,'plugin','add',plugin_id],env)
         installed.append(host)
     print(json.dumps({'status':'ready','runtime':str(folder),'installed_hosts':installed,
         'next':'Restart the host app once, open a new chat and ask for the edit. No launcher or model switch is needed.'},indent=2))

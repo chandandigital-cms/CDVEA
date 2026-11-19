@@ -57,6 +57,17 @@ powershell -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\CDVEA-Plugin\CDVEA\s
 
 Use `-Hosts codex` for the Codex CLI. Restart the app once.
 
+**Claude desktop app:** the desktop app doesn't put the `claude` command on PATH, so `-Hosts claude` stops with `claude CLI is not on PATH`. Keep `-Hosts none` from step 2, then run these in a terminal where `claude` works (the first two only if an older CDVEA is registered):
+
+```powershell
+claude plugin uninstall cdvea@chandan-digital
+claude plugin marketplace remove chandan-digital
+claude plugin marketplace add "$env:LOCALAPPDATA\CDVEA-Plugin\CDVEA"
+claude plugin install cdvea@chandan-digital-local --scope user
+```
+
+**Older CDVEA already installed?** Keep only one copy enabled. In Codex, open `%USERPROFILE%\.codex\config.toml` and set `enabled = false` under the older `[plugins."cdvea@…"]` entry, then restart Codex.
+
 Try: *"Use CDVEA doctor to check my setup."*
 
 ## 4. Use the tools without an AI app (optional)
@@ -72,11 +83,35 @@ Use `--language hi` for Hindi or `en` for English, or leave it out for automatic
 
 Only needed for some features. See [CAPABILITIES.md](CAPABILITIES.md).
 
-| Software | Used for | Download |
-| --- | --- | --- |
-| Node.js LTS | HyperFrames and Remotion motion graphics, some social helpers | [nodejs.org](https://nodejs.org/) |
-| Blender | 3D and Blender workflows | [blender.org/download](https://www.blender.org/download/) |
-| Git | Cloning the source instead of downloading CDVEA.zip | [git-scm.com](https://git-scm.com/download/win) |
+| Software | Used for | Download | Or install with | Check |
+| --- | --- | --- | --- | --- |
+| Node.js LTS | Needed by HyperFrames and Remotion, some social helpers | [nodejs.org](https://nodejs.org/) | `winget install --id OpenJS.NodeJS.LTS -e` | `node --version` |
+| HyperFrames CLI | Animated titles, logos, HTML motion graphics | [hyperframes](https://github.com/heygen-com/hyperframes) | `npm install -g hyperframes` | `hyperframes doctor` |
+| Remotion | React motion graphics and transparent overlays | [remotion.dev](https://www.remotion.dev/) | per project, see below | `npm run still` |
+| Blender | 3D logos, product animation, camera moves | [blender.org/download](https://www.blender.org/download/) | `winget install --id BlenderFoundation.Blender -e` | `& $env:BLENDER_PATH --version` |
+| Git | Cloning the source instead of downloading CDVEA.zip | [git-scm.com](https://git-scm.com/download/win) | `winget install --id Git.Git -e` | `git --version` |
+
+**Remotion** lives inside a project folder. Copy CDVEA's starter and install it there:
+
+```powershell
+$r = "$env:USERPROFILE\Documents\CDVEA-Remotion"
+Copy-Item "$env:LOCALAPPDATA\CDVEA-Plugin\CDVEA\vendor\video-editing\skills\video-editing\assets\remotion-edit-template" $r -Recurse
+Set-Location $r
+npm ci
+npx remotion browser ensure
+npm run still
+```
+
+The browser step downloads Remotion's headless Chrome (about 100 MB) once. `npm run still` saves a test frame to `output\still.png`.
+
+**Blender** isn't added to PATH by its installer. Tell CDVEA where it is, then restart your AI app:
+
+```powershell
+$b = Get-ChildItem 'C:\Program Files\Blender Foundation' -Recurse -Filter blender.exe -Depth 2 | Sort-Object FullName -Descending | Select-Object -First 1
+[Environment]::SetEnvironmentVariable('BLENDER_PATH', $b.FullName, 'User')
+```
+
+**Git clone:** run `git config --global core.longpaths true` first. Some bundled file paths are longer than Windows allows by default.
 
 ## Troubleshooting
 
@@ -87,6 +122,10 @@ Only needed for some features. See [CAPABILITIES.md](CAPABILITIES.md).
 | `Run setup.ps1 from the CDVEA plugin folder` | Setup has not finished. Run the step 2 commands again. |
 | `interface.longDescription is required` | You uploaded an old plugin ZIP. Download CDVEA.zip again (step 2, first line). |
 | CDVEA tools don't respond in Codex | Check `python --version` works, run step 2 again, restart Codex and open a new chat. |
+| `claude CLI is not on PATH` | You're using the Claude desktop app. Run setup with `-Hosts none` and register the plugin with the commands in step 3. |
+| CDVEA tools appear twice, or an old version loads | Two copies are enabled. Disable the older one (step 3, "Older CDVEA already installed?"). |
+| doctor says Blender is missing after installing it | Set `BLENDER_PATH` (see Optional software) and restart the AI app. New environment variables only reach apps opened afterwards. |
+| `Filename too long` when cloning | Run `git config --global core.longpaths true`, then `git restore --source=HEAD :/` in the clone. |
 
 **Uninstall:** remove the plugin in Codex, then delete `%LOCALAPPDATA%\CDVEA` and `%LOCALAPPDATA%\CDVEA-Plugin`.
 
@@ -112,7 +151,20 @@ PowerShell খুলে ওপরের **ধাপ ২-এর তিনটি �
 
 - **Codex অ্যাপ:** **New Plugin** খুলে **Choose file**-এ `Downloads\CDVEA.zip` বেছে নিন (এক্সট্র্যাক্ট করবেন না), তারপর **Add plugin**। Codex রিস্টার্ট করে নতুন চ্যাট খুলুন।
 - **Claude Code CLI:** আপলোড না করে ওপরের ধাপ ৩-এর `-Hosts claude` কমান্ডটি চালান।
+- **Claude ডেস্কটপ অ্যাপ:** ডেস্কটপ অ্যাপ `claude` কমান্ড PATH-এ রাখে না, তাই `-Hosts claude` কাজ করবে না। `-Hosts none` দিয়ে setup চালান, তারপর ওপরের ধাপ ৩-এর চারটি `claude plugin` কমান্ড এমন টার্মিনালে চালান যেখানে `claude` কাজ করে।
+- **পুরনো CDVEA আগে থেকে আছে?** একটাই চালু রাখুন। Codex-এ `%USERPROFILE%\.codex\config.toml` খুলে পুরনো `[plugins."cdvea@…"]`-এর নিচে `enabled = false` করুন, তারপর Codex রিস্টার্ট করুন।
 
 লিখে দেখুন: *"Use CDVEA doctor to check my setup."*
+
+### ৪. মোশন গ্রাফিক্স আর 3D (দরকার হলে)
+
+| কাজ | সফটওয়্যার | ইনস্টল |
+| --- | --- | --- |
+| HyperFrames আর Remotion চালাতে | Node.js LTS | `winget install --id OpenJS.NodeJS.LTS -e` |
+| অ্যানিমেটেড টাইটেল, লোগো, HTML মোশন | HyperFrames | `npm install -g hyperframes`, তারপর `hyperframes doctor` |
+| React মোশন গ্রাফিক্স, স্বচ্ছ ওভারলে | Remotion | ওপরের Optional software অংশের কমান্ডগুলো চালান |
+| 3D লোগো, পণ্যের অ্যানিমেশন, ক্যামেরা মুভমেন্ট | Blender | `winget install --id BlenderFoundation.Blender -e` |
+
+Blender ইনস্টলের পর ওপরের `BLENDER_PATH` কমান্ড দুটো চালান আর AI অ্যাপ রিস্টার্ট করুন। না হলে CDVEA doctor Blender খুঁজে পাবে না।
 
 **সমস্যা হলে:** ওপরের Troubleshooting টেবিল দেখুন। `python` চিনতে না পারলে "Add python.exe to PATH" টিক দিয়ে Python আবার ইনস্টল করুন।
