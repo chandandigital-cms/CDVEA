@@ -63,7 +63,7 @@ Use `-Hosts codex` for the Codex CLI. Restart the app once.
 claude plugin uninstall cdvea@chandan-digital
 claude plugin marketplace remove chandan-digital
 claude plugin marketplace add "$env:LOCALAPPDATA\CDVEA-Plugin\CDVEA"
-claude plugin install cdvea@chandan-digital --scope user
+claude plugin install cdvea@chandan-digital-local --scope user
 ```
 
 **Older CDVEA already installed?** Keep only one copy enabled. In Codex, open `%USERPROFILE%\.codex\config.toml` and set `enabled = false` under the older `[plugins."cdvea@…"]` entry, then restart Codex.

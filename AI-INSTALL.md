@@ -70,7 +70,7 @@ Setup downloads CDVEA's own Python 3.12, its pinned packages (about 200 MB) and 
   claude plugin uninstall cdvea@chandan-digital
   claude plugin marketplace remove chandan-digital
   claude plugin marketplace add "$env:LOCALAPPDATA\CDVEA-Plugin\CDVEA"
-  claude plugin install cdvea@chandan-digital --scope user
+  claude plugin install cdvea@chandan-digital-local --scope user
   ```
 
   Then restart the Claude app and open a new chat.
