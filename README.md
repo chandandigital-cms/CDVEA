@@ -9,10 +9,10 @@
 [![FFmpeg 6.1+](https://img.shields.io/badge/FFmpeg-6.1%2B-102a2c?style=flat-square&logo=ffmpeg)](SETUP-GUIDE.md)
 [![MCP tools](https://img.shields.io/badge/MCP-49%20tools-3bdbc3?style=flat-square)](CAPABILITIES.md)
 
-<a href="https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip"><img src="https://img.shields.io/badge/Download%20for%20Windows-All--in--One%20ZIP%20·%20731%20MB-3bdbc3?style=for-the-badge&logo=windows&logoColor=0a1c1e&labelColor=e8fbf8" alt="Download CDVEA All-in-One for Windows x64 (ZIP, 731 MB)"></a>
-<a href="https://drive.usercontent.google.com/download?id=1f7gVyanqVcN99f0Z5ftGGskrD1g62hGN&export=download&confirm=t"><img src="https://img.shields.io/badge/Mirror-Google%20Drive-102a2c?style=for-the-badge&logo=googledrive&logoColor=3bdbc3&labelColor=0a1c1e" alt="Download CDVEA All-in-One for Windows from the Google Drive mirror"></a>
+<a href="https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-Windows-x64.zip"><img src="https://img.shields.io/badge/Download%20for%20Windows-Local%20%2B%20AI%20Plugin%20·%20744%20MB-3bdbc3?style=for-the-badge&logo=windows&logoColor=0a1c1e&labelColor=e8fbf8" alt="Download CDVEA for Windows x64: CDVEA Local engine and CDVEA AI plugin (ZIP, 744 MB)"></a>
+<a href="https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA.zip"><img src="https://img.shields.io/badge/AI%20Plugin%20only-CDVEA.zip%20·%2018%20MB-102a2c?style=for-the-badge&logo=openai&logoColor=3bdbc3&labelColor=0a1c1e" alt="Download the CDVEA AI plugin only (CDVEA.zip, 18 MB)"></a>
 
-<sub>Python, FFmpeg and the Bengali/Hindi/English speech model included. Nothing else to install.</sub>
+<sub>Includes <b>CDVEA-Local</b> (Python, FFmpeg and the Bengali/Hindi/English speech model), <b>CDVEA.zip</b> (the AI plugin for Codex) and a setup guide. Nothing else to install.</sub>
 
 **[Quick start](#-quick-start-windows)** · **[Features](#-features)** · **[Demos](#-see-it-work)** · **[Prompts](#-ask-in-english-or-bengali)** · **[FAQ](#-faq)**
 
@@ -102,14 +102,20 @@ Some routes need extra software. [CAPABILITIES.md](CAPABILITIES.md) lists exactl
 
 ## 🚀 Quick start (Windows)
 
-### Option A — All-in-One ZIP (recommended)
+### Option A — CDVEA Local + AI plugin (recommended)
 
-1. **[Download CDVEA-All-in-One-Windows-x64.zip](https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip)** (731 MB). If GitHub is slow, use the [Google Drive mirror](https://drive.usercontent.google.com/download?id=1f7gVyanqVcN99f0Z5ftGGskrD1g62hGN&export=download&confirm=t).
-2. Right-click the ZIP, choose **Extract All**, and open the extracted `CDVEA` folder.
-3. Double-click **`Install-CDVEA.cmd`** and wait for the ready message. If Claude Code or Codex is on PATH, it registers the plugin automatically.
-4. Restart Claude Code or Codex, open a new chat and ask for an edit.
+The package has two parts: **CDVEA-Local** runs the tools on your computer, and **CDVEA.zip** is the AI plugin that uses it.
 
-To use the tools without a host app, double-click **`CDVEA.cmd`**:
+1. **[Download CDVEA-Windows-x64.zip](https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-Windows-x64.zip)** (744 MB), right-click it and choose **Extract All**.
+2. Move the **`CDVEA-Local`** folder to drive C, so that `C:\CDVEA-Local\Install-CDVEA.cmd` exists.
+3. Double-click **`C:\CDVEA-Local\Install-CDVEA.cmd`** and wait for `CDVEA Local is ready`.
+4. In Codex, open **New Plugin**, choose **`CDVEA.zip`** (don't extract it) and click **Add plugin**. Restart Codex and open a new chat.
+
+`SETUP-GUIDE.html` inside the package covers every step in English and Bengali. Keep the folder at `C:\CDVEA-Local`: the plugin looks for it there.
+
+**Claude Code / Codex CLI:** after step 3, run `C:\CDVEA-Local\Install-CDVEA.cmd --hosts claude` (or `--hosts codex`) instead of uploading CDVEA.zip.
+
+**Without an AI app:** double-click **`C:\CDVEA-Local\CDVEA.cmd`**:
 
 ```bat
 CDVEA.cmd doctor
@@ -117,7 +123,9 @@ CDVEA.cmd transcribe "D:\Videos\interview.mp4" --language bn
 CDVEA.cmd init "D:\VideoJobs\my-edit"
 ```
 
-Use `--language hi` for Hindi or `en` for English, or leave it out for automatic detection. Keep the extracted folder together. If you move it, run `Install-CDVEA.cmd` again. The [Windows setup guide](SETUP-GUIDE.md) has every option.
+Use `--language hi` for Hindi or `en` for English, or leave it out for automatic detection.
+
+The older single-folder package, **[CDVEA-All-in-One-Windows-x64.zip](https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip)** (731 MB, also on [Google Drive](https://drive.usercontent.google.com/download?id=1f7gVyanqVcN99f0Z5ftGGskrD1g62hGN&export=download&confirm=t)), is still available.
 
 ### Option B — From source
 
