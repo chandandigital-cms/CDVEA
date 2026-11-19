@@ -10,6 +10,7 @@
   "interface": {
     "displayName": "CDVEA",
     "shortDescription": "Video editing, motion graphics and audio tools",
+    "longDescription": "CDVEA by Chandan Digital turns Codex into a local video editor. Describe the edit in English or Bengali and CDVEA plans it, cuts footage with FFmpeg, cleans and mixes sound, adds Bengali, Hindi or English captions, creates titles and motion graphics, and exports masters, Reels and Shorts. The core runs on your own computer with 30 skills, 8 specialist agents and 49 local MCP tools.",
     "developerName": "Chandan Digital",
     "category": "Creativity",
     "capabilities": [
