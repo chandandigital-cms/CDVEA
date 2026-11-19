@@ -9,7 +9,7 @@
 [![FFmpeg 6.1+](https://img.shields.io/badge/FFmpeg-6.1%2B-102a2c?style=flat-square&logo=ffmpeg)](SETUP-GUIDE.md)
 [![MCP tools](https://img.shields.io/badge/MCP-49%20tools-3bdbc3?style=flat-square)](CAPABILITIES.md)
 
-<a href="https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip"><img src="https://img.shields.io/badge/Download%20for%20Windows-All--in--One%20ZIP%20·%20738%20MB-3bdbc3?style=for-the-badge&logo=windows&logoColor=0a1c1e&labelColor=e8fbf8" alt="Download CDVEA All-in-One for Windows x64 (ZIP, 738 MB)"></a>
+<a href="https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip"><img src="https://img.shields.io/badge/Download%20for%20Windows-All--in--One%20ZIP%20·%20731%20MB-3bdbc3?style=for-the-badge&logo=windows&logoColor=0a1c1e&labelColor=e8fbf8" alt="Download CDVEA All-in-One for Windows x64 (ZIP, 731 MB)"></a>
 <a href="https://drive.usercontent.google.com/download?id=15USi0r3XCWa2qMCRfKjVsGB_RuPnXDS9&export=download&confirm=t"><img src="https://img.shields.io/badge/Mirror-Google%20Drive-102a2c?style=for-the-badge&logo=googledrive&logoColor=3bdbc3&labelColor=0a1c1e" alt="Download CDVEA All-in-One for Windows from the Google Drive mirror"></a>
 
 <sub>Python, FFmpeg and the Bengali/Hindi/English speech model included. Nothing else to install.</sub>
@@ -104,7 +104,7 @@ Some routes need extra software. [CAPABILITIES.md](CAPABILITIES.md) lists exactl
 
 ### Option A — All-in-One ZIP (recommended)
 
-1. **[Download CDVEA-All-in-One-Windows-x64.zip](https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip)** (738 MB). If GitHub is slow, use the [Google Drive mirror](https://drive.usercontent.google.com/download?id=15USi0r3XCWa2qMCRfKjVsGB_RuPnXDS9&export=download&confirm=t).
+1. **[Download CDVEA-All-in-One-Windows-x64.zip](https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip)** (731 MB). If GitHub is slow, use the [Google Drive mirror](https://drive.usercontent.google.com/download?id=15USi0r3XCWa2qMCRfKjVsGB_RuPnXDS9&export=download&confirm=t).
 2. Right-click the ZIP, choose **Extract All**, and open the extracted `CDVEA` folder.
 3. Double-click **`Install-CDVEA.cmd`** and wait for the ready message. If Claude Code or Codex is on PATH, it registers the plugin automatically.
 4. Restart Claude Code or Codex, open a new chat and ask for an edit.
