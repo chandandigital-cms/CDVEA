@@ -1,0 +1,4 @@
+interface:
+  display_name: "CDVEA: Motion Components"
+  short_description: "Video editing tools from Chandan Digital"
+  default_prompt: "Use $cdvea-motion-components to help with this video editing task."

@@ -1,0 +1,14 @@
+{
+  "name": "chandan-digital",
+  "owner": {
+    "name": "Chandan Digital"
+  },
+  "plugins": [
+    {
+      "name": "cdvea",
+      "source": "./",
+      "description": "CDVEA by Chandan Digital: local video editing, editorial planning, motion graphics, captions, sound and delivery."
+    }
+  ],
+  "description": "Video editing and local media tools by Chandan Digital"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "CDVEA: Blender"
+  short_description: "Optional video tools from Chandan Digital"
+  default_prompt: "Use $cdvea-blender for this video task."

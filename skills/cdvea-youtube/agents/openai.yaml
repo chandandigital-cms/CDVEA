@@ -1,0 +1,4 @@
+interface:
+  display_name: "CDVEA: Youtube"
+  short_description: "Video editing tools from Chandan Digital"
+  default_prompt: "Use $cdvea-youtube to help with this video editing task."

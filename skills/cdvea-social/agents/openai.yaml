@@ -1,0 +1,4 @@
+interface:
+  display_name: "CDVEA: Social"
+  short_description: "Video editing tools from Chandan Digital"
+  default_prompt: "Use $cdvea-social to help with this video editing task."

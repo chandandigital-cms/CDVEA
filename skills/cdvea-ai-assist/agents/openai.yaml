@@ -1,0 +1,4 @@
+interface:
+  display_name: "CDVEA: Ai-Assist"
+  short_description: "Optional video tools from Chandan Digital"
+  default_prompt: "Use $cdvea-ai-assist for this video task."

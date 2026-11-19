@@ -1,0 +1,4 @@
+interface:
+  display_name: "CDVEA: Auto Cut"
+  short_description: "Video editing tools from Chandan Digital"
+  default_prompt: "Use $cdvea-auto-cut to help with this video editing task."

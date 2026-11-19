@@ -1,0 +1,31 @@
+{
+  "name": "cdvea",
+  "version": "1.2.0",
+  "description": "CDVEA by Chandan Digital: local video editing, editorial planning, motion graphics, captions, sound and delivery.",
+  "author": {
+    "name": "Chandan Digital"
+  },
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "CDVEA",
+    "shortDescription": "Video editing, motion graphics and audio tools",
+    "developerName": "Chandan Digital",
+    "category": "Creativity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "brandColor": "#126B65",
+    "defaultPrompt": [
+      "Edit my footage with CDVEA",
+      "Make a Bengali promo and a vertical Short",
+      "Review this video and fix the edit"
+    ],
+    "logo": "./assets/cdvea-icon.png",
+    "composerIcon": "./assets/cdvea-icon.png"
+  },
+  "mcpServers": "./.mcp-codex.json",
+  "requires_local_executor": true,
+  "repository": "https://github.com/chandandigital-cms/CDVEA"
+}
