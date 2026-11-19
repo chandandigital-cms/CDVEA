@@ -9,10 +9,10 @@
 [![FFmpeg 6.1+](https://img.shields.io/badge/FFmpeg-6.1%2B-102a2c?style=flat-square&logo=ffmpeg)](SETUP-GUIDE.md)
 [![MCP tools](https://img.shields.io/badge/MCP-49%20tools-3bdbc3?style=flat-square)](CAPABILITIES.md)
 
-<a href="https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-Windows-x64.zip"><img src="https://img.shields.io/badge/Download%20for%20Windows-Local%20%2B%20AI%20Plugin%20·%20744%20MB-3bdbc3?style=for-the-badge&logo=windows&logoColor=0a1c1e&labelColor=e8fbf8" alt="Download CDVEA for Windows x64: CDVEA Local engine and CDVEA AI plugin (ZIP, 744 MB)"></a>
-<a href="https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA.zip"><img src="https://img.shields.io/badge/AI%20Plugin%20only-CDVEA.zip%20·%2018%20MB-102a2c?style=for-the-badge&logo=openai&logoColor=3bdbc3&labelColor=0a1c1e" alt="Download the CDVEA AI plugin only (CDVEA.zip, 18 MB)"></a>
+<a href="https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA.zip"><img src="https://img.shields.io/badge/Download-CDVEA%20AI%20Plugin%20·%2018%20MB-3bdbc3?style=for-the-badge&logo=windows&logoColor=0a1c1e&labelColor=e8fbf8" alt="Download the CDVEA AI plugin for Codex and Claude Code (CDVEA.zip, 18 MB)"></a>
+<a href="SETUP-GUIDE.md"><img src="https://img.shields.io/badge/Setup%20guide-English%20·%20বাংলা-102a2c?style=for-the-badge&labelColor=0a1c1e" alt="CDVEA setup guide in English and Bengali"></a>
 
-<sub>Includes <b>CDVEA-Local</b> (Python, FFmpeg and the Bengali/Hindi/English speech model), <b>CDVEA.zip</b> (the AI plugin for Codex) and a setup guide. Nothing else to install.</sub>
+<sub>Needs <a href="https://www.python.org/downloads/windows/">Python 3.10+</a> and <a href="https://www.gyan.dev/ffmpeg/builds/">FFmpeg 6.1+</a>. Setup downloads the speech model and the rest automatically.</sub>
 
 **[Quick start](#-quick-start-windows)** · **[Features](#-features)** · **[Demos](#-see-it-work)** · **[Prompts](#-ask-in-english-or-bengali)** · **[FAQ](#-faq)**
 
@@ -102,34 +102,33 @@ Some routes need extra software. [CAPABILITIES.md](CAPABILITIES.md) lists exactl
 
 ## 🚀 Quick start (Windows)
 
-### Option A — CDVEA Local + AI plugin (recommended)
+**1. Install the required software** (once):
 
-The package has two parts: **CDVEA-Local** runs the tools on your computer, and **CDVEA.zip** is the AI plugin that uses it.
+| Software | Download | Or with winget |
+| --- | --- | --- |
+| Python 3.10+ (tick **"Add python.exe to PATH"**) | [python.org](https://www.python.org/downloads/windows/) | `winget install --id Python.Python.3.12 -e` |
+| FFmpeg 6.1+ with FFprobe | [gyan.dev](https://www.gyan.dev/ffmpeg/builds/) · [ffmpeg.org](https://ffmpeg.org/download.html) | `winget install --id Gyan.FFmpeg -e` |
+| Codex or Claude Code | [Codex](https://developers.openai.com/codex/quickstart) · [Claude Code](https://code.claude.com/docs/en/setup) | — |
 
-1. **[Download CDVEA-Windows-x64.zip](https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-Windows-x64.zip)** (744 MB), right-click it and choose **Extract All**.
-2. Move the **`CDVEA-Local`** folder to drive C, so that `C:\CDVEA-Local\Install-CDVEA.cmd` exists.
-3. Double-click **`C:\CDVEA-Local\Install-CDVEA.cmd`** and wait for `CDVEA Local is ready`.
-4. In Codex, open **New Plugin**, choose **`CDVEA.zip`** (don't extract it) and click **Add plugin**. Restart Codex and open a new chat.
+Close and reopen PowerShell after installing.
 
-`SETUP-GUIDE.html` inside the package covers every step in English and Bengali. Keep the folder at `C:\CDVEA-Local`: the plugin looks for it there.
+**2. Download the plugin and run setup.** Paste into PowerShell:
 
-**Claude Code / Codex CLI:** after step 3, run `C:\CDVEA-Local\Install-CDVEA.cmd --hosts claude` (or `--hosts codex`) instead of uploading CDVEA.zip.
-
-**Without an AI app:** double-click **`C:\CDVEA-Local\CDVEA.cmd`**:
-
-```bat
-CDVEA.cmd doctor
-CDVEA.cmd transcribe "D:\Videos\interview.mp4" --language bn
-CDVEA.cmd init "D:\VideoJobs\my-edit"
+```powershell
+Invoke-WebRequest https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA.zip -OutFile "$env:USERPROFILE\Downloads\CDVEA.zip"
+Expand-Archive "$env:USERPROFILE\Downloads\CDVEA.zip" "$env:LOCALAPPDATA\CDVEA-Plugin" -Force
+powershell -ExecutionPolicy Bypass -File "$env:LOCALAPPDATA\CDVEA-Plugin\CDVEA\setup.ps1" -Hosts none
 ```
 
-Use `--language hi` for Hindi or `en` for English, or leave it out for automatic detection.
+Setup downloads CDVEA's own Python 3.12, its packages and the [Bengali/Hindi/English speech model](https://huggingface.co/Systran/faster-whisper-small) (about 484 MB, SHA-256 checked), then prints `"status": "ready"`.
 
-The older single-folder package, **[CDVEA-All-in-One-Windows-x64.zip](https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip)** (731 MB, also on [Google Drive](https://drive.usercontent.google.com/download?id=1f7gVyanqVcN99f0Z5ftGGskrD1g62hGN&export=download&confirm=t)), is still available.
+**3. Add the plugin.** In Codex, open **New Plugin**, choose **`Downloads\CDVEA.zip`** (don't extract it) and click **Add plugin**. Restart Codex and open a new chat.
 
-### Option B — From source
+For the Claude Code or Codex CLI, run the last line of step 2 again with `-Hosts claude` (or `-Hosts codex`) instead of uploading.
 
-Needs Git, Python 3.10+ and FFmpeg 6.1+ (`winget install --id Git.Git -e`, `winget install --id Python.Python.3.12 -e`, `winget install --id Gyan.FFmpeg -e`).
+The [setup guide](SETUP-GUIDE.md) covers every step in English and Bengali, plus optional software (Node.js, Blender) and troubleshooting.
+
+### From source
 
 ```powershell
 git clone https://github.com/chandandigital-cms/CDVEA.git
@@ -137,7 +136,7 @@ cd CDVEA
 powershell -ExecutionPolicy Bypass -File .\setup.ps1
 ```
 
-Setup downloads the speech model (about 484 MB), prepares the local runtime and registers CDVEA with the host CLIs it finds. Restart the host once.
+Needs Git, Python and FFmpeg from step 1. This registers CDVEA with the Claude Code and Codex CLIs it finds.
 
 ### Use the CLI directly
 
@@ -198,7 +197,7 @@ No. It is an agent workflow for fast, repeatable edits. It can export an EDL cut
 
 Version 1.2.1 passes 9 local integration tests on Windows x64: cuts, speed, missing audio, source preservation, subtitle retiming, cut-list export and MCP calls. HyperFrames, Remotion, Blender, hosted generation, YouTube publishing and native editor imports have **not** passed end-to-end tests yet. A fresh install on a clean second computer has not been tested either. [VALIDATION.md](VALIDATION.md) records exactly what ran.
 
-The git repository excludes model weights, installed applications, virtual environments, media and account credentials. The All-in-One ZIP on the [Releases page](https://github.com/chandandigital-cms/CDVEA/releases/latest) adds CPython 3.12, FFmpeg 9.0.1 (GPL v3) and the faster-whisper small model (MIT). Their licences are in `RUNTIME-LICENSES.md` inside the ZIP.
+The repository and CDVEA.zip contain only the plugin source. They exclude model weights, Python, FFmpeg, virtual environments, media and account credentials. Setup downloads the runtime and model from their official sources, and you install FFmpeg yourself under its own licence.
 
 ## 🙏 Credits and licences
 

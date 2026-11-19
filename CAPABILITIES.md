@@ -19,7 +19,7 @@ This release packages 30 discoverable skills, 8 specialist agent definitions, 9 
 | B-roll search and rights records | Adapted B-roll skill | Search access and media permission |
 | HTML animation and motion components | HyperFrames skills and references | Separate HyperFrames/Node/browser setup |
 | React motion graphics and alpha overlays | Bundled MIT motion starter | Remotion dependencies and its own licence |
-| Local transcription and word timestamps | `CDVEA.cmd transcribe` | Included multilingual model |
+| Local transcription and word timestamps | `cdvea/run.py transcribe` | Multilingual model downloaded by setup.ps1 |
 | Content-based scene detection | cdvea/ai.py scenes | PySceneDetect and OpenCV |
 | GIF, sticker, hook plates and social variants | Short-form skills and helpers | Some helpers need Node and sharp |
 | ProRes, DNxHR, alpha, proxies and platform files | Core export/proxy tools | Appropriate FFmpeg encoders |

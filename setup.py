@@ -33,7 +33,7 @@ def main():
     if os.name!='nt':raise RuntimeError('Automatic installer currently supports Windows. See INSTALL.md for manual setup on other systems.')
     ffmpeg=os.environ.get('FFMPEG_PATH') or shutil.which('ffmpeg')
     ffprobe=os.environ.get('FFPROBE_PATH') or shutil.which('ffprobe')
-    if not ffmpeg or not ffprobe:raise RuntimeError('Install FFmpeg first, reopen the terminal, then run setup.py again. See INSTALL.md step 2.')
+    if not ffmpeg or not ffprobe:raise RuntimeError('Install FFmpeg first, reopen the terminal, then run setup.py again. See SETUP-GUIDE.md step 1.')
     uv=[shutil.which('uv')] if shutil.which('uv') else None
     if not uv:
         if importlib.util.find_spec('uv') is None:run([sys.executable,'-m','pip','install','--user','uv'])

@@ -30,13 +30,13 @@ def load_runtime():
     else:
         path = runtime_directory() / 'runtime.json'
         if not path.is_file():
-            raise RuntimeError('Extract the complete CDVEA ZIP and run Install-CDVEA.cmd.')
+            raise RuntimeError('CDVEA is not set up yet. Run setup.ps1 from the CDVEA plugin folder (see SETUP-GUIDE.md).')
         config = json.loads(path.read_text(encoding='utf-8'))
 
     python = Path(config['python'])
     model = Path(config['model'])
     if not python.is_file() or not (model / 'model.bin').is_file():
-        raise RuntimeError('CDVEA could not find Python or the speech model. Extract the complete ZIP again.')
+        raise RuntimeError('CDVEA could not find its Python or speech model. Run setup.ps1 again (see SETUP-GUIDE.md).')
 
     env = dict(os.environ, FFMPEG_SKILL_MCP_FULL='1', FFMPEG_SKILL_ASR_ENGINE='faster-whisper',
                FFMPEG_SKILL_ASR_MODEL=str(model), HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1',
