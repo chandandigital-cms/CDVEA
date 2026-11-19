@@ -150,9 +150,9 @@ Setup downloads CDVEA's own Python 3.12, its packages and the [Bengali/Hindi/Eng
 
 **3. Add the plugin.** In Codex, open **New Plugin**, choose **`Downloads\CDVEA.zip`** (don't extract it) and click **Add plugin**. Restart Codex and open a new chat.
 
-For the Claude Code or Codex CLI, run the last line of step 2 again with `-Hosts claude` (or `-Hosts codex`) instead of uploading.
+For the Claude Code or Codex CLI, run the last line of step 2 again with `-Hosts claude` (or `-Hosts codex`) instead of uploading. The Claude desktop app has no `claude` command on PATH; the setup guide gives the commands to register the plugin there.
 
-The [setup guide](SETUP-GUIDE.md) covers every step in English and Bengali, plus optional software (Node.js, Blender) and troubleshooting.
+The [setup guide](SETUP-GUIDE.md) covers every step in English and Bengali, plus optional software (Node.js, HyperFrames, Remotion, Blender) and troubleshooting.
 
 ### From source
 
