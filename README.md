@@ -14,7 +14,7 @@
 
 <sub>Needs <a href="https://www.python.org/downloads/windows/">Python 3.10+</a> and <a href="https://www.gyan.dev/ffmpeg/builds/">FFmpeg 6.1+</a>. Setup downloads the speech model and the rest automatically.</sub>
 
-**[Quick start](#-quick-start-windows)** · **[Features](#-features)** · **[Demos](#-see-it-work)** · **[Prompts](#-ask-in-english-or-bengali)** · **[FAQ](#-faq)**
+**[Install with AI](#-install-with-your-ai-agent)** · **[Quick start](#-quick-start-windows)** · **[Features](#-features)** · **[Demos](#-see-it-work)** · **[Prompts](#-ask-in-english-or-bengali)** · **[FAQ](#-faq)**
 
 </div>
 
@@ -100,7 +100,33 @@ Slash commands in Claude Code: `/cdvea:plan`, `/cdvea:edit`, `/cdvea:audio`, `/c
 
 Some routes need extra software. [CAPABILITIES.md](CAPABILITIES.md) lists exactly what each one requires.
 
+## 🤖 Install with your AI agent
+
+The easiest way: paste one of these prompts into **Claude Code, Codex or Cursor** on your Windows computer. The agent checks and installs Python and FFmpeg, downloads the plugin, runs setup and connects CDVEA to itself, asking you before it installs anything. It follows [AI-INSTALL.md](AI-INSTALL.md).
+
+**English**
+
+```text
+Install the CDVEA video editing plugin on this Windows computer.
+Follow these instructions exactly: https://raw.githubusercontent.com/chandandigital-cms/CDVEA/main/AI-INSTALL.md
+Repository: https://github.com/chandandigital-cms/CDVEA
+Ask me before installing any software or changing app settings.
+```
+
+**বাংলা**
+
+```text
+এই Windows কম্পিউটারে CDVEA ভিডিও এডিটিং প্লাগইন ইনস্টল করে দাও।
+ঠিক এই নির্দেশগুলো মেনে চলো: https://raw.githubusercontent.com/chandandigital-cms/CDVEA/main/AI-INSTALL.md
+রিপোজিটরি: https://github.com/chandandigital-cms/CDVEA
+কোনো সফটওয়্যার ইনস্টল বা অ্যাপের সেটিং বদলানোর আগে আমাকে জিজ্ঞেস করবে।
+```
+
+Setup downloads about 700 MB and takes 5–15 minutes. In the **Codex app**, the agent finishes by asking you to upload `Downloads\CDVEA.zip` in **New Plugin**, since only you can do that step.
+
 ## 🚀 Quick start (Windows)
+
+Prefer to do it yourself? Three steps:
 
 **1. Install the required software** (once):
 

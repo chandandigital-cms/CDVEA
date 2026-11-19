@@ -4,6 +4,8 @@ CDVEA is an AI plugin. It does the editing with software that runs on your own c
 
 **[বাংলা নির্দেশিকা নিচে আছে ↓](#বাংলা-নির্দেশিকা)**
 
+> **Shortcut:** let Claude Code, Codex or Cursor do all of this for you. Paste the prompt from [the README](README.md#-install-with-your-ai-agent) and the agent follows [AI-INSTALL.md](AI-INSTALL.md).
+
 ## 1. Install the required software
 
 | Software | Why CDVEA needs it | Download | Or install with winget |
