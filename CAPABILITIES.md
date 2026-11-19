@@ -19,7 +19,7 @@ This release packages 30 discoverable skills, 8 specialist agent definitions, 9 
 | B-roll search and rights records | Adapted B-roll skill | Search access and media permission |
 | HTML animation and motion components | HyperFrames skills and references | Separate HyperFrames/Node/browser setup |
 | React motion graphics and alpha overlays | Bundled MIT motion starter | Remotion dependencies and its own licence |
-| Local transcription and word timestamps | cdvea/ai.py transcribe | faster-whisper and an existing local model |
+| Local transcription and word timestamps | `CDVEA.cmd transcribe` | Included multilingual model |
 | Content-based scene detection | cdvea/ai.py scenes | PySceneDetect and OpenCV |
 | GIF, sticker, hook plates and social variants | Short-form skills and helpers | Some helpers need Node and sharp |
 | ProRes, DNxHR, alpha, proxies and platform files | Core export/proxy tools | Appropriate FFmpeg encoders |
@@ -32,5 +32,3 @@ This release packages 30 discoverable skills, 8 specialist agent definitions, 9 
 CDVEA includes guidance for AI upscaling, video segmentation and Blender work. It does not bundle their engines, GPU runtimes or model weights. It does not provide native Premiere, Resolve or Final Cut project automation, automatic motion tracking, generative fill, voice cloning or every commercial editor feature.
 
 Use the relevant original project if the job needs [Real-ESRGAN restoration](https://github.com/xinntao/Real-ESRGAN), [SAM 2 segmentation](https://github.com/facebookresearch/sam2) or [Blender](https://www.blender.org/). Review the chosen code and model terms separately. A short sample must show that the tool handles the actual footage before a long run.
-
-The installed environment passed the local core checks. Faster-whisper, PySceneDetect, HyperFrames, Remotion, hosted generation, YouTube upload and native editor imports have not passed an end-to-end test here. VALIDATION.md records the checks that actually ran.

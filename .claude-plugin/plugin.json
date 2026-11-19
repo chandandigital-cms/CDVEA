@@ -1,6 +1,6 @@
 {
   "name": "cdvea",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "CDVEA by Chandan Digital: local video editing, editorial planning, motion graphics, captions, sound and delivery.",
   "author": {
     "name": "Chandan Digital"
@@ -8,7 +8,7 @@
   "license": "MIT",
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
-  "displayName": "CDVEA",
+  "displayName": "CDVEA by Chandan Digital",
   "icon": "./assets/cdvea-icon.png",
   "repository": "https://github.com/chandandigital-cms/CDVEA"
 }

@@ -1,11 +1,11 @@
-# Automatic local transcription
+# Make subtitles from a local audio or video file
 
-Run the one-time [setup](SETUP-GUIDE.md). It stores the Python environment, model and configuration under `%LOCALAPPDATA%\CDVEA` by default.
+Run this command in the CDVEA window:
 
-Both host declarations run `mcp/launch.py`. This small bootstrap reads the per-user runtime configuration and starts the correct Python with the local model path. It does not load the model on startup. `cdvea_transcribe` loads the model only for a speech job.
+```bat
+CDVEA.cmd transcribe "D:\Videos\interview.mp4" --language bn
+```
 
-Call `cdvea_transcribe` with a local input path. Optional languages include bn, hi and en. Omit output_dir for a new folder beside the source. The tool returns SRT and word-timing JSON paths. Do not ask the user to activate an environment or open a launcher.
+Use `bn` for Bengali, `hi` for Hindi or `en` for English. Leave out `--language` so the model can detect the language. The command creates a new folder beside the input and writes `transcript.srt` for subtitles and `transcript.json` for word timing. Use `--output-dir` with a new folder if you want to choose the destination.
 
-For shell helpers, use `python cdvea/run.py` from the plugin root. Examples: `doctor`, `transcribe INPUT --language bn`, or `tool audio INPUT --denoise -o OUTPUT`.
-
-The plugin cache and per-user runtime are separate. Keep the runtime on disk. Do not commit machine configuration, model weights, virtual environments or account credentials. The host’s normal permission controls still apply.
+In a host chat, ask CDVEA to transcribe a local file. The `cdvea_transcribe` tool uses the same bundled model. Review names, numbers and spellings before adding subtitles to your final video.

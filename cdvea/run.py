@@ -1,5 +1,5 @@
 """Run shell helpers through the configured local Python, without manual activation."""
-import os
+import subprocess
 from pathlib import Path
 import sys
 from runtime import load_runtime
@@ -14,6 +14,6 @@ try:
         script=ROOT/'scripts'/(args[1]+'.py');args=args[2:]
     elif args[0] in ['transcribe','scenes']:script=ROOT/'cdvea/ai.py'
     else:script=ROOT/'cdvea/cli.py'
-    os.execve(str(python),[str(python),str(script),*args],env)
+    raise SystemExit(subprocess.call([str(python), str(script), *args], env=env))
 except (OSError,ValueError,RuntimeError) as e:
     print('CDVEA: '+str(e),file=sys.stderr);raise SystemExit(1)

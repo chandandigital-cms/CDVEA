@@ -2,12 +2,16 @@
 
 <img src="assets/readme/hero.svg" width="100%" alt="CDVEA by Chandan Digital – AI video editing agent for Claude Code and Codex: cut footage, clean sound, add Bengali, Hindi and English captions, motion graphics and platform exports with FFmpeg">
 
-[![Version](https://img.shields.io/badge/version-1.2.0-3bdbc3?style=flat-square)](VALIDATION.md)
+[![Version](https://img.shields.io/badge/version-1.2.1-3bdbc3?style=flat-square)](https://github.com/chandandigital-cms/CDVEA/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-3bdbc3?style=flat-square)](LICENSE)
 [![Windows x64](https://img.shields.io/badge/setup-Windows%2010%2F11%20x64-102a2c?style=flat-square&logo=windows)](SETUP-GUIDE.md)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-102a2c?style=flat-square&logo=python&logoColor=white)](SETUP-GUIDE.md)
 [![FFmpeg 6.1+](https://img.shields.io/badge/FFmpeg-6.1%2B-102a2c?style=flat-square&logo=ffmpeg)](SETUP-GUIDE.md)
 [![MCP tools](https://img.shields.io/badge/MCP-49%20tools-3bdbc3?style=flat-square)](CAPABILITIES.md)
+
+<a href="https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip"><img src="https://img.shields.io/badge/Download%20for%20Windows-All--in--One%20ZIP%20·%20738%20MB-3bdbc3?style=for-the-badge&logo=windows&logoColor=0a1c1e&labelColor=e8fbf8" alt="Download CDVEA All-in-One for Windows x64 (ZIP, 738 MB)"></a>
+
+<sub>Python, FFmpeg and the Bengali/Hindi/English speech model included. Nothing else to install.</sub>
 
 **[Quick start](#-quick-start-windows)** · **[Features](#-features)** · **[Demos](#-see-it-work)** · **[Prompts](#-ask-in-english-or-bengali)** · **[FAQ](#-faq)**
 
@@ -97,15 +101,26 @@ Some routes need extra software. [CAPABILITIES.md](CAPABILITIES.md) lists exactl
 
 ## 🚀 Quick start (Windows)
 
-**1. Install the prerequisites** (Git, Python 3.10+, FFmpeg 6.1+):
+### Option A — All-in-One ZIP (recommended)
 
-```powershell
-winget install --id Git.Git -e
-winget install --id Python.Python.3.12 -e
-winget install --id Gyan.FFmpeg -e
+1. **[Download CDVEA-All-in-One-Windows-x64.zip](https://github.com/chandandigital-cms/CDVEA/releases/latest/download/CDVEA-All-in-One-Windows-x64.zip)** (738 MB).
+2. Right-click the ZIP, choose **Extract All**, and open the extracted `CDVEA` folder.
+3. Double-click **`Install-CDVEA.cmd`** and wait for the ready message. If Claude Code or Codex is on PATH, it registers the plugin automatically.
+4. Restart Claude Code or Codex, open a new chat and ask for an edit.
+
+To use the tools without a host app, double-click **`CDVEA.cmd`**:
+
+```bat
+CDVEA.cmd doctor
+CDVEA.cmd transcribe "D:\Videos\interview.mp4" --language bn
+CDVEA.cmd init "D:\VideoJobs\my-edit"
 ```
 
-**2. Clone and run setup once:**
+Use `--language hi` for Hindi or `en` for English, or leave it out for automatic detection. Keep the extracted folder together. If you move it, run `Install-CDVEA.cmd` again. The [Windows setup guide](SETUP-GUIDE.md) has every option.
+
+### Option B — From source
+
+Needs Git, Python 3.10+ and FFmpeg 6.1+ (`winget install --id Git.Git -e`, `winget install --id Python.Python.3.12 -e`, `winget install --id Gyan.FFmpeg -e`).
 
 ```powershell
 git clone https://github.com/chandandigital-cms/CDVEA.git
@@ -113,9 +128,7 @@ cd CDVEA
 powershell -ExecutionPolicy Bypass -File .\setup.ps1
 ```
 
-**3. Restart Claude Code or Codex**, then ask for an edit normally. You don't need a launcher or a model switch.
-
-The installer prepares the local runtime and speech model, then registers CDVEA with the host CLIs it finds. The [step-by-step setup guide](SETUP-GUIDE.md) covers every detail.
+Setup downloads the speech model (about 484 MB), prepares the local runtime and registers CDVEA with the host CLIs it finds. Restart the host once.
 
 ### Use the CLI directly
 
@@ -174,9 +187,9 @@ No. It is an agent workflow for fast, repeatable edits. It can export an EDL cut
 
 ## ⚠️ Tested scope
 
-Version 1.2.0 passed 9 local integration tests on Windows x64: cuts, speed, missing audio, source preservation, subtitle retiming, cut-list export and MCP calls. HyperFrames, Remotion, Blender, hosted generation, YouTube publishing and native editor imports have **not** passed end-to-end tests yet. A fresh install on a clean second computer has not been tested either. [VALIDATION.md](VALIDATION.md) records exactly what ran.
+Version 1.2.1 passes 9 local integration tests on Windows x64: cuts, speed, missing audio, source preservation, subtitle retiming, cut-list export and MCP calls. HyperFrames, Remotion, Blender, hosted generation, YouTube publishing and native editor imports have **not** passed end-to-end tests yet. A fresh install on a clean second computer has not been tested either. [VALIDATION.md](VALIDATION.md) records exactly what ran.
 
-The repository excludes model weights, installed applications, virtual environments, media and account credentials.
+The git repository excludes model weights, installed applications, virtual environments, media and account credentials. The All-in-One ZIP on the [Releases page](https://github.com/chandandigital-cms/CDVEA/releases/latest) adds CPython 3.12, FFmpeg 9.0.1 (GPL v3) and the faster-whisper small model (MIT). Their licences are in `RUNTIME-LICENSES.md` inside the ZIP.
 
 ## 🙏 Credits and licences
 

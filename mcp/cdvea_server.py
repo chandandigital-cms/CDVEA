@@ -57,7 +57,7 @@ def call_tool(name,args,on_start=None):
 def handle(req,on_start=None):
     result=_handle(req,on_start)
     if req.get('method')=='initialize':
-        result['serverInfo']={'name':'cdvea','version':'1.2.0'}
+        result['serverInfo']={'name':'cdvea','version':'1.2.1'}
     return result
 
 core.tool_list=tool_list
